@@ -1,0 +1,8 @@
+[package]
+name = "crab_platformer"
+authors = ["Axis <77634274+blankRiot96@users.noreply.github.com>", "Engliz <117704481+TotalyEnglizLitrate@users.noreply.github.com>"]
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+raylib = {version = "5.0.1", features = ["wayland"]}
