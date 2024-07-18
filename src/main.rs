@@ -6,7 +6,7 @@ mod game_state;
 mod level_state;
 mod menu_state;
 mod state_manager;
-
+mod traits;
 use crate::enums::State;
 
 use crate::state_manager::StateManager;
