@@ -1,13 +1,11 @@
 #![allow(unused)]
 
 use raylib::prelude::*;
-mod enums;
 mod game_state;
 mod level_state;
 mod menu_state;
+mod state;
 mod state_manager;
-
-use crate::enums::State;
 
 use crate::state_manager::StateManager;
 

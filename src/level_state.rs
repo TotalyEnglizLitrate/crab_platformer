@@ -1,16 +1,20 @@
 use raylib::prelude::*;
 
-pub struct LevelState {
-    pub next_state: String,
-}
+use crate::{
+    game_state::GameState,
+    state::{Action, StateTrait},
+};
 
-impl LevelState {
-    pub fn update(&mut self, rl: &RaylibHandle) {
-        if rl.is_key_pressed(KeyboardKey::KEY_TAB) {
-            self.next_state = String::from("game")
-        }
+pub struct LevelState;
+
+impl StateTrait for LevelState {
+    fn bindings(&self) -> std::collections::HashMap<KeyboardKey, crate::state::Action> {
+        vec![(KeyboardKey::KEY_TAB, Action::NextState(Box::new(GameState)))]
+            .into_iter()
+            .collect()
     }
-    pub fn draw(&self, d: &mut RaylibDrawHandle) {
+    fn update(&mut self, rl: &RaylibHandle) {}
+    fn draw(&self, d: &mut RaylibDrawHandle) {
         d.draw_text(
             "Level Picker\n\nPress TAB to go to game",
             100,

@@ -1,15 +1,25 @@
-use raylib::prelude::*;
-pub struct MenuState {
-    pub next_state: String,
-}
+use std::collections::HashMap;
 
-impl MenuState {
-    pub fn update(&mut self, rl: &RaylibHandle) {
-        if rl.is_key_pressed(KeyboardKey::KEY_TAB) {
-            self.next_state = String::from("level picker");
-        }
+use raylib::prelude::*;
+
+use crate::{
+    level_state::LevelState,
+    state::{Action, StateTrait},
+};
+pub struct MenuState {}
+
+impl StateTrait for MenuState {
+    fn bindings(&self) -> HashMap<KeyboardKey, Action> {
+        vec![(
+            KeyboardKey::KEY_TAB,
+            Action::NextState(Box::new(LevelState)),
+        )]
+        .into_iter()
+        .collect()
     }
-    pub fn draw(&self, d: &mut RaylibDrawHandle) {
+
+    fn update(&mut self, rl: &RaylibHandle) {}
+    fn draw(&self, d: &mut RaylibDrawHandle) {
         d.draw_text(
             "Main menu\n\n\nPress TAB to go to level picker",
             100,

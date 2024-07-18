@@ -1,11 +1,16 @@
-use raylib::prelude::*;
-pub struct GameState {
-    pub next_state: String,
-}
+use std::collections::HashMap;
 
-impl GameState {
-    pub fn update(&self, rl: &RaylibHandle) {}
-    pub fn draw(&self, d: &mut RaylibDrawHandle) {
+use raylib::prelude::*;
+
+use crate::state::StateTrait;
+pub struct GameState;
+
+impl StateTrait for GameState {
+    fn bindings(&self) -> std::collections::HashMap<KeyboardKey, crate::state::Action> {
+        HashMap::new()
+    }
+    fn update(&mut self, rl: &RaylibHandle) {}
+    fn draw(&self, d: &mut RaylibDrawHandle) {
         d.draw_text("game", 100, 100, 30, Color::WHITE);
     }
 }
