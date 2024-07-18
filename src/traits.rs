@@ -1,9 +1,5 @@
-use raylib::prelude::*;
-
 use crate::enums::State;
-use crate::game_state::GameState;
-use crate::level_state::LevelState;
-use crate::menu_state::MenuState;
+use crate::raylib::*;
 
 pub trait StateTrait {
     fn update(&mut self, rl: &RaylibHandle);

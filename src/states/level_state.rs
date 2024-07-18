@@ -1,27 +1,27 @@
-use crate::enums::State;
-use crate::traits::StateTrait;
-use raylib::prelude::*;
-pub struct MenuState {
+use crate::raylib::*;
+use crate::{enums::State, traits::StateTrait};
+
+pub struct LevelState {
     pub next_state: State,
 }
 
-impl MenuState {
+impl LevelState {
     pub fn new() -> Self {
-        MenuState {
+        LevelState {
             next_state: State::None,
         }
     }
 }
 
-impl StateTrait for MenuState {
+impl StateTrait for LevelState {
     fn update(&mut self, rl: &RaylibHandle) {
         if rl.is_key_pressed(KeyboardKey::KEY_TAB) {
-            self.next_state = State::Level;
+            self.next_state = State::Game
         }
     }
     fn draw(&self, d: &mut RaylibDrawHandle) {
         d.draw_text(
-            "Main menu\n\n\nPress TAB to go to level picker",
+            "Level Picker\n\nPress TAB to go to game",
             100,
             100,
             30,

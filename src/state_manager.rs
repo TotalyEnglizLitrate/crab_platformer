@@ -1,11 +1,8 @@
-use raylib::prelude::*;
+use crate::raylib::*;
 
-use crate::enums::State;
-use crate::traits::StateTrait;
+use crate::{enums::State, traits::StateTrait};
 
-use crate::game_state::GameState;
-use crate::level_state::LevelState;
-use crate::menu_state::MenuState;
+use crate::states::{GameState, LevelState, MenuState};
 
 pub struct StateManager {
     pub current_state: Box<dyn StateTrait>,

@@ -1,6 +1,5 @@
-use crate::enums::State;
-use crate::traits::StateTrait;
-use raylib::prelude::*;
+use crate::raylib::*;
+use crate::{enums::State, traits::StateTrait};
 
 pub struct GameState {
     pub next_state: State,

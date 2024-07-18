@@ -1,14 +1,16 @@
 #![allow(unused)]
 
-use raylib::prelude::*;
+use raylib::prelude as raylib;
+mod actions;
 mod enums;
-mod game_state;
-mod level_state;
-mod menu_state;
+mod puzzles;
 mod state_manager;
+mod states;
 mod traits;
-use crate::enums::State;
+mod zen;
 
+use crate::enums::State;
+use crate::raylib::*;
 use crate::state_manager::StateManager;
 
 fn main() {
