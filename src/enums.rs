@@ -1,4 +1,3 @@
-use crate::states::game_state::GameVariant;
 use crate::traits::StateTrait;
 
 pub enum State {
@@ -6,4 +5,10 @@ pub enum State {
     Menu,
     Level,
     Game(GameVariant),
+}
+
+#[derive(Clone, Copy)]
+pub enum GameVariant {
+    Puzzle,
+    Zen,
 }

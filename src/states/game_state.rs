@@ -1,10 +1,8 @@
 use crate::raylib::*;
-use crate::{enums::State, traits::StateTrait};
-
-pub enum GameVariant {
-    Puzzle,
-    Zen,
-}
+use crate::{
+    enums::{GameVariant, State},
+    traits::StateTrait,
+};
 
 pub struct GameState {
     pub next_state: State,

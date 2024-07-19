@@ -1,5 +1,8 @@
 use crate::raylib::*;
-use crate::{enums::State, traits::StateTrait};
+use crate::{
+    enums::{GameVariant, State},
+    traits::StateTrait,
+};
 
 pub struct LevelState {
     pub next_state: State,
@@ -15,8 +18,9 @@ impl LevelState {
 
 impl StateTrait for LevelState {
     fn update(&mut self, rl: &RaylibHandle) {
+        //TODO: change this once buttons and/or keynav are added to reflect respective Game Variant
         if rl.is_key_pressed(KeyboardKey::KEY_TAB) {
-            self.next_state = State::Game
+            self.next_state = State::Game(GameVariant::Puzzle);
         }
     }
     fn draw(&self, d: &mut RaylibDrawHandle) {
