@@ -20,7 +20,7 @@ impl StateManager {
         match self.current_state.go_next_state() {
             &State::Level => self.current_state = Box::new(LevelState::new()),
             &State::Menu => self.current_state = Box::new(MenuState::new()),
-            &State::Game => self.current_state = Box::new(GameState::new()),
+            &State::Game(variant) => self.current_state = Box::new(GameState::new(variant)),
             &State::None => {}
         }
     }
